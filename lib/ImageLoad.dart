@@ -16,13 +16,13 @@ class ImageLoad extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-//    return new DecoratedBox(
-//      decoration: new BoxDecoration(
-//        image: new DecorationImage(
-//          image: new AssetImage('assets/images/ic_group_top.png'),
-//        ),
-//      ),
-//    );
+    return new DecoratedBox(
+      decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: new AssetImage('assets/images/ic_group_top.png'),
+        ),
+      ),
+    );
     //加载
     return Center(
       child: Container(
@@ -31,5 +31,4 @@ class ImageLoad extends StatelessWidget{
       ),
     );
   }
-
 }

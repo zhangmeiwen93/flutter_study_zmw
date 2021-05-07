@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-/**
- * 测试命名路由，携带数据且返回数据
- */
+/// 测试命名路由，携带数据且返回数据
 class EchoRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,6 @@ class EchoRoute extends StatelessWidget {
         title: Text(args),
       ),
       body: Center(
-
         child: Column(
           children: <Widget>[
             ElevatedButton(onPressed: () {

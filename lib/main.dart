@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutterstudyzmw/EchoRoute.dart';
+import 'package:flutterstudyzmw/L4_3_FlexLayoutTestRoute.dart';
 import 'package:flutterstudyzmw/ImageLoad.dart';
+import 'package:flutterstudyzmw/L4_4_WrapFlowRoute.dart';
+import 'package:flutterstudyzmw/L4_5_StackPositioned.dart';
+import 'package:flutterstudyzmw/L5_1_padding.dart';
+import 'package:flutterstudyzmw/L5_2_Box.dart';
+import 'package:flutterstudyzmw/L5_3_DecoratedBox.dart';
 import 'package:flutterstudyzmw/RandomWords.dart';
+import 'package:flutterstudyzmw/TapboxA.dart';
 import 'package:flutterstudyzmw/TipRoute.dart';
 
 void main() {
@@ -29,15 +36,24 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "new_page": (context) => NewRoute(),
-        "tip_page": (context) => TipRoute(text: ModalRoute.of(context).settings.arguments),
+        "tip_page": (context) =>
+            TipRoute(text: ModalRoute.of(context).settings.arguments),
         "echo_page": (context) => EchoRoute(),
         "random_page": (context) => RandomWordsWidget(),
         "image_page": (context) => ImageLoad(),
+        "tap_box": (context) => TapboxA(),
+        "FlexLayoutTestRoute": (context) => l4_3_FlexLayoutTestRoute(),
+        "L4_4_WrapFlowRoute":(context) => L4_4_WrapFlowRoute(),
+        "L4_5_StackPositioned":(context) => L4_5_StackPositioned(),
+        "L5_1_padding":(context) => L5_1_padding(),
+        "L5_2_Box":(context) => L5_2_Box(),
+        "L5_3_DecoratedBox":(context) => L5_3_DecoratedBox(),
         "/": (context) => MyHomePage(title: 'Flutter Demo Home Page'),
       },
-      onGenerateRoute: (RouteSettings settings){ //onGenerateRoute只会对命名路由生效
+      onGenerateRoute: (RouteSettings settings) {
+        //onGenerateRoute只会对命名路由生效
         // ignore: missing_return
-        return MaterialPageRoute(builder: (context){
+        return MaterialPageRoute(builder: (context) {
           String RouteName = settings.name;
         });
       },
@@ -134,9 +150,9 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             TextButton(
-              child: Text("测试跳转Name"),
+              child: Text("测试跳转"),
               onPressed: () {
-                Navigator.pushNamed(context, "image_page");
+                Navigator.pushNamed(context, "L5_3_DecoratedBox");
 //                Navigator.push(context, MaterialPageRoute(builder: (context) {
 //                  return NewRoute();
 //                }));
@@ -145,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               },
             ),
-            TextButton(
+            ElevatedButton(
                 onPressed: () async {
                   var result = await Navigator.push(context,
                       MaterialPageRoute(builder: (context) {
@@ -155,11 +171,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Text("测试跳转携带数据")),
             TextButton(
-                onPressed: () async {
-                  var result = await Navigator.pushNamed(context, "echo_page",arguments: "你好啊");
-                  print("路由返回值: $result");
-                },
-                child: Text("测试命名路由传递参数"))
+              onPressed: () async {
+                var result = await Navigator.pushNamed(context, "echo_page",
+                    arguments: "你好啊");
+                print("路由返回值: $result");
+              },
+              child: Text("测试命名路由传递参数", style: TextStyle(color: Colors.blue)),
+            )
           ],
         ),
       ),
