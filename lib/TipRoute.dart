@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 
-/**
- * 测试传递参数 路由传值
- */
+/// 测试传递参数 路由传值
 class TipRoute extends StatelessWidget {
   TipRoute({
     Key key,
